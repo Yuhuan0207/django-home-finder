@@ -11,6 +11,11 @@ class Property(models.Model):
     location = models.ForeignKey(Location, on_delete = models.CASCADE)
     property_name = models.CharField(max_length = 200)
     area = models.CharField(max_length = 200)
+    price = models.CharField(max_length = 200)
+    zip_code = models.CharField(max_length = 200)
+    direction = models.CharField(max_length = 200)
+    post_address = models.CharField(max_length = 200)
+    image_url = models.CharField(max_length = 500)
 
     def __str__(self):
         return self.property_name
