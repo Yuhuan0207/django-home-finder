@@ -1,3 +1,7 @@
-{% for place in location.property_set.all %}
-    <a href="/homesapp/{{location.id}}/{{place.id}}">{{ place.property_name }}</a></br>
-{% endfor %}
+{% extends 'homesapp/base.html' %}
+
+{% block body %}
+    {% for place in location.property_set.all %}
+        <a href="/homesapp/{{location.id}}/{{place.id}}">{{ place.property_name }}</a></br>
+    {% endfor %}
+{% endblock %}
