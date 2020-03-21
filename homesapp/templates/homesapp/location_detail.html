@@ -1,3 +1,3 @@
 {% for place in location.property_set.all %}
-    {{ place.property_name }} </br>
+    <a href="/homesapp/{{location.id}}/{{place.id}}">{{ place.property_name }}</a></br>
 {% endfor %}

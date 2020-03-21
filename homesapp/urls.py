@@ -20,6 +20,10 @@ from . import views
 app_name = 'homesapp'
 
 urlpatterns = [    
+    #/homesapp/
     re_path(r'^$', views.IndexView.as_view(), name='index'),
-    re_path(r'^(?P<pk>[0-9]+)/$', views.LocationView.as_view(), name = 'property')
+    #/homesapp/1
+    re_path(r'^(?P<pk>[0-9]+)/$', views.LocationView.as_view(), name = 'property'),
+    #/homesapp/1/2
+    re_path(r'^[0-9]+/(?P<pk>[0-9]+)/$', views.PropertyView.as_view(), name = 'propertyview')
 ]
