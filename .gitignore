@@ -1,1 +1,4 @@
+homefinder/__pycache__/
+homesapp/__pycache__/
+homesapp/migrations/
 db.sqlite3
