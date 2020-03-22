@@ -1,7 +1,59 @@
 {% extends 'homesapp/base.html' %}
 
 {% block body %}
-    {% for place in location.property_set.all %}
-        <a href="/homesapp/{{location.id}}/{{place.id}}">{{ place.property_name }}</a></br>
-    {% endfor %}
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1>Properties in {{location.location_name}}</h1>
+
+            <div class="panel-group">
+                {% for place in location.property_set.all %}
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h3>{{ place.property_name }}</h3></div>
+                    <div class="panel-body">
+                        <div class="col-md-4">
+                            <img src="{{place.image_url}}" height = "200", width="250">
+                        </div>                        
+                        <div class="col-md-6">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td><label><b>Area SQFT</b></label></td>
+                                        <td>{{ place.area }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label><b>Price</b></label></td>
+                                        <td>{{ place.price }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label><b>Direction</b></label></td>
+                                        <td>{{ place.direction }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label><b>Address</b></label></td>
+                                        <td>{{ place.post_address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td><a class="btn btn-success" href="/homesapp/{{location.id}}/{{place.id}}">View Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+
+</html>
+<!--     
+        <a href=">{{ place.property_name }}</a></br>
+     -->
 {% endblock %}
